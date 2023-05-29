@@ -9,9 +9,9 @@ import React from "react";
              <img style={styles.image} alt=""/>
             </div>
             <div className="right-block">
-             <div>Phone</div>
-             <div>Rs 1999</div>
-             <div>Qty : 1</div>
+             <div style={{fontSize: 25}}>Phone</div>
+             <div style={{color: '#777'}}>Rs 1999</div>
+             <div style={{color: '#777'}}>Qty : 1</div>
              <div className="cart-item-actions">
               {/* {buttons} */}
              </div>
@@ -25,7 +25,8 @@ import React from "react";
     image:{
         height: 110,
         width: 110,
-        borderRadius: 4
+        borderRadius: 4,
+        background: '#ccc'
     }
  }
 

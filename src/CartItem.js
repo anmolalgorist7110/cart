@@ -16,7 +16,30 @@ import React from "react";
    }
    
    increaseQuantity = () => {
-      console.log('this.state' , this.state) ; 
+      // this.state.qty += 1 ; 
+      console.log('this.state' , this.state) ;
+      /*----------------------------------------------------------------------------------------*/
+      
+      //set state form 1
+      //(by using the object)
+
+      // this.setState({
+      //    qty: this.state.qty + 1  
+      // })
+      
+      /*----------------------------------------------------------------------------------------*/
+
+      //set state form 2 - use only if the prev state is required
+      //(by using the callback function) 
+
+      this.setState((prevstate) => {
+         return{
+            qty: prevstate.qty + 1 
+         }
+      });
+
+      /*-----------------------------------------------------------------------------------------*/
+
    }
 
     render(){

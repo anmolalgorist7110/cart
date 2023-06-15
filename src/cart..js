@@ -37,6 +37,33 @@ import CartItem from './CartItem';
     // this.testing();
  }
 
+ handleIncreaseQuantity = (product) => {
+   const {products} = this.state;
+   const index = products.indexOf(product);
+
+   products[index].qty += 1 ;
+
+   this.setState({
+    products: products 
+   })
+ }
+
+ 
+ handleDecreaseQuantity = (product) => {
+    const {products} = this.state;
+    const index = products.indexOf(product);
+
+    if(products[index].qty === 0){
+     return ;
+    }
+
+    products[index].qty -= 1 ;
+ 
+    this.setState({
+     products: products 
+    })
+  }
+
     render (){
 
         const {products} = this.state ;
@@ -49,6 +76,8 @@ import CartItem from './CartItem';
                 <CartItem
                  product = {product} 
                  key = {product.id}
+                 onIncreaseQuantity = {this.handleIncreaseQuantity}
+                 onDecreaseQuantity = {this.handleDecreaseQuantity}
                  />
                 )
             })}

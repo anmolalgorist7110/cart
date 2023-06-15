@@ -5,7 +5,20 @@ import React from "react";
  class CartItem extends React.Component {
     render(){
       console.log('this.props' , this.props);
-      const {price , title , qty} = this.props.product;
+      
+      // all the info about passed here
+      const {
+         price ,
+          title ,
+           qty
+         } = this.props.product;
+
+      // all the functionalitie is passed here
+      const {product
+          ,onIncreaseQuantity,
+           onDecreaseQuantity , 
+           onDeleteProduct
+         } = this.props ;
         return(
          <div className="cart-item">
             <div className="left-block">
@@ -21,18 +34,19 @@ import React from "react";
               alt="increase"
                className="action-icons" 
                src="https://www.svgrepo.com/show/512677/plus-circle-1425.svg" 
-               onClick={() => this.props.onIncreaseQuantity(this.props.product)}
+               onClick={() => onIncreaseQuantity(product)}
               />
               <img
                alt="decrease" 
                className="action-icons" 
                src="https://www.svgrepo.com/show/512494/minus-circle-1426.svg" 
-               onClick={() => this.props.onDecreaseQuantity(this.props.product)}
+               onClick={() => onDecreaseQuantity(product)}
               />
               <img
                alt="delete"
                 className="action-icons" 
                 src="https://www.svgrepo.com/show/511788/delete-1487.svg" 
+                onClick = {() => onDeleteProduct(product.id) }
                />
              </div>
             </div>

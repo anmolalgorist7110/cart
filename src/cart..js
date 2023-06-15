@@ -37,6 +37,8 @@ import CartItem from './CartItem';
     // this.testing();
  }
 
+
+ // function to increase the product
  handleIncreaseQuantity = (product) => {
    const {products} = this.state;
    const index = products.indexOf(product);
@@ -48,7 +50,7 @@ import CartItem from './CartItem';
    })
  }
 
- 
+ // function to decrease the product
  handleDecreaseQuantity = (product) => {
     const {products} = this.state;
     const index = products.indexOf(product);
@@ -61,6 +63,17 @@ import CartItem from './CartItem';
  
     this.setState({
      products: products 
+    })
+  }
+
+  //function to delete the product
+  handleDeleteProduct = (id) =>{
+    const{products} = this.state ;
+
+    const items = products.filter((item) => item.id != id);// return an array whose prodcts id is not equal to the id that is passed
+
+    this.setState({
+        products: items
     })
   }
 
@@ -78,6 +91,7 @@ import CartItem from './CartItem';
                  key = {product.id}
                  onIncreaseQuantity = {this.handleIncreaseQuantity}
                  onDecreaseQuantity = {this.handleDecreaseQuantity}
+                 onDeleteProduct = {this.handleDeleteProduct} 
                  />
                 )
             })}

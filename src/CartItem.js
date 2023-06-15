@@ -13,8 +13,31 @@ import React from "react";
          img: ''
       }
       // this.increaseQuantity = this.increaseQuantity.bind(this);
+      // this.testing();
    }
+
+   // testing () {
+   //    const promise = new Promise((resolve , reject) => {
+   //       setTimeout(() => {
+   //          resolve('done');
+   //       } , 5000)
+   //    })
+
+   //    promise.then(() => {
+   //       this.setState({qty : this.state.qty + 10});
+
+   //       this.setState({qty : this.state.qty + 10});
+
+   //       this.setState({qty : this.state.qty + 10});
+
+   //       console.log('state' , this.state);
+   //    });
+
+
+   // }
    
+
+   // for increasing the cart intems quant
    increaseQuantity = () => {
       // this.state.qty += 1 ; 
       console.log('this.state' , this.state) ;
@@ -42,6 +65,28 @@ import React from "react";
 
    }
 
+
+   // for decreasing the cart items quant
+   decreaseQuantity = () => {
+    
+       const {qty} = this.state;
+
+       if(qty === 0){
+         return ;
+       }
+
+      // set state 2 - if previous required use this
+      this.setState((prevstate) => {
+         return{
+            qty: prevstate.qty - 1 
+         }
+      }  , () =>{
+         console.log('this.state' , this.state);
+      });
+
+
+   }
+
     render(){
       const {price , title , qty} = this.state;
         return(
@@ -65,6 +110,7 @@ import React from "react";
                alt="decrease" 
                className="action-icons" 
                src="https://www.svgrepo.com/show/512494/minus-circle-1426.svg" 
+               onClick={this.decreaseQuantity.bind(this)}
               />
               <img
                alt="delete"

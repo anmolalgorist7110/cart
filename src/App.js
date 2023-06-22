@@ -78,6 +78,7 @@ class App extends React.Component{
     })
   }
 
+  //this func gives the  count of the total num items present in the cart
   getCartCount = () =>{
     const {products} = this.state;
     
@@ -88,6 +89,20 @@ class App extends React.Component{
     })
 
     return count ;
+  }
+
+  //this func  will give you the TOTAL price of the total items present in the cart
+
+  getCartTotal = () => {
+    const {products} = this.state;
+
+    let carttot = 0 
+
+    products.map((product) =>{
+      carttot = carttot + product.qty * product.price ;
+    })
+
+    return carttot ;
   }
 
   render() {
@@ -103,6 +118,7 @@ class App extends React.Component{
         onDeleteProduct = {this.handleDeleteProduct} 
 
       />
+      <div style={{padding: 10 , fontSize: 20}}>TOTAL: {this.getCartTotal()}</div>
     </div>
   );
 
